@@ -11,6 +11,6 @@ class Balita extends Model
 
   public function keluarga()
   {
-    return $this->belongsTo(Keluarga::class);
+    return $this->belongsTo(User::class);
   }
 }

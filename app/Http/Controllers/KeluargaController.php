@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Keluarga;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
@@ -15,7 +15,7 @@ class KeluargaController extends Controller
    */
   public function index()
   {
-    $data_keluarga = Keluarga::all();
+    $data_keluarga = User::all();
 
     return view('admin.pages.keluarga', ['data_keluarga' => $data_keluarga]);
   }
@@ -38,7 +38,7 @@ class KeluargaController extends Controller
    */
   public function store(Request $request)
   {
-    $keluarga = new Keluarga();
+    $keluarga = new User();
 
     $keluarga->no_kk = $request->no_kk;
     $keluarga->nama = $request->nama;
@@ -71,7 +71,7 @@ class KeluargaController extends Controller
    */
   public function edit($id)
   {
-    $keluarga = Keluarga::findOrFail($id);
+    $keluarga = User::findOrFail($id);
 
     return view('admin.pages.keluarga-edit', ['keluarga' => $keluarga]);
   }
@@ -85,7 +85,7 @@ class KeluargaController extends Controller
    */
   public function update(Request $request, $id)
   {
-    $keluarga = Keluarga::findOrFail($id);
+    $keluarga = User::findOrFail($id);
 
     $keluarga->no_kk = $request->no_kk;
     $keluarga->nama = $request->nama;
@@ -112,7 +112,7 @@ class KeluargaController extends Controller
    */
   public function destroy($id)
   {
-    $keluarga = Keluarga::findOrFail($id);
+    $keluarga = User::findOrFail($id);
 
     $keluarga->delete();
 
