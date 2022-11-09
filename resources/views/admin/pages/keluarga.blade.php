@@ -69,9 +69,9 @@
                                                             </button>
                                                             <div class="dropdown-menu dropdown-menu-right">
                                                                 <a class="dropdown-item"
-                                                                    href="{{ route('keluarga.edit', $keluarga->id) }}">Edit</a>
+                                                                    href="{{ route('admin.keluarga.edit', $keluarga->id) }}">Edit</a>
                                                                 <form
-                                                                    action="{{ route('keluarga.destroy', $keluarga->id) }}"
+                                                                    action="{{ route('admin.keluarga.destroy', $keluarga->id) }}"
                                                                     method="post">
                                                                     @csrf
                                                                     @method('DELETE')
@@ -103,7 +103,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="{{ route('keluarga.store') }}" method="post">
+                            <form action="{{ route('admin.keluarga.store') }}" method="post">
                                 @csrf
                                 <div class="modal-body">
                                     <div class="form-group mb-3">

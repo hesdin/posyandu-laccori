@@ -37,4 +37,34 @@ class AuthController extends Controller
 
         return redirect('/');
     }
+
+    // Admin Auth
+    public function loginPageAdmin()
+    {
+        return view('auth.login-admin');
+    }
+
+    public function loginCheckAdmin(Request $request)
+    {
+        $credentials = $request->validate([
+            'username' => ['required'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::guard('admin')->attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->route('admin.dashboard');
+        }
+    }
+
+    public function logoutAdmin(Request $request)
+    {
+        Auth::guard('admin')->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('admin.logout');
+    }
 }

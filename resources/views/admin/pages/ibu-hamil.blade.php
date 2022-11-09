@@ -66,7 +66,7 @@
                                                 @foreach ($data_ibu_hamil as $ibu_hamil)
                                                     <tr role="row" class="odd">
                                                         <td><strong>{{ $ibu_hamil->nama }}</strong></td>
-                                                        <td>{{ $ibu_hamil->keluarga->nama }}</td>
+                                                        <td>{{ $ibu_hamil->user->nama }}</td>
                                                         <td>{{ \Carbon\Carbon::parse($ibu_hamil->tgl_lahir)->isoFormat('D-MMM-Y') }}
                                                         </td>
                                                         <td>{{ $ibu_hamil->anak_ke }}</td>
@@ -77,9 +77,9 @@
                                                             </button>
                                                             <div class="dropdown-menu dropdown-menu-right">
                                                                 <a class="dropdown-item"
-                                                                    href="{{ route('ibu-hamil.edit', $ibu_hamil->id) }}">Edit</a>
+                                                                    href="{{ route('admin.ibu-hamil.edit', $ibu_hamil->id) }}">Edit</a>
                                                                 <form id="form{{ $ibu_hamil->id }}"
-                                                                    action="{{ route('ibu-hamil.destroy', $ibu_hamil->id) }}"
+                                                                    action="{{ route('admin.ibu-hamil.destroy', $ibu_hamil->id) }}"
                                                                     method="post">
                                                                     @csrf
                                                                     @method('DELETE')
@@ -111,7 +111,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="{{ route('ibu-hamil.store') }}" method="post">
+                            <form action="{{ route('admin.ibu-hamil.store') }}" method="post">
                                 @csrf
                                 <div class="modal-body">
                                     <div class="form-group mb-3">
@@ -122,9 +122,9 @@
                                         <label for="simple-select2">Keluarga</label>
                                         <select class="form-control select2 select2-hidden-accessible" id="simple-select2"
                                             data-select2-id="simple-select2" tabindex="-1" aria-hidden="true"
-                                            name="keluarga_id">
-                                            @foreach ($data_keluarga as $keluarga)
-                                                <option value="{{ $keluarga->id }}">{{ $keluarga->nama }}</option>
+                                            name="user_id">
+                                            @foreach ($users as $user)
+                                                <option value="{{ $user->id }}">{{ $user->nama }}</option>
                                             @endforeach
                                         </select>
                                     </div>

@@ -16,7 +16,7 @@ return new class extends Migration
     Schema::create('ibu_hamils', function (Blueprint $table) {
       $table->id();
       $table->string('nama', 255);
-      $table->foreignId('user')
+      $table->foreignId('user_id')
         ->constrained('users')
         ->onUpdate('cascade')
         ->onDelete('cascade');

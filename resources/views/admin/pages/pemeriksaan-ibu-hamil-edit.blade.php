@@ -15,7 +15,7 @@
 
             </div>
         </div>
-        <form action="{{ route('pemeriksaan-ibu-hamil.update', $pemeriksaan->id) }}" method="post">
+        <form action="{{ route('admin.pemeriksaan-ibu-hamil.update', $pemeriksaan->id) }}" method="post">
             @method('PUT')
             @csrf
             <div class="row my-4">

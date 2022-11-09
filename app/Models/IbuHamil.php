@@ -9,7 +9,7 @@ class IbuHamil extends Model
 {
   use HasFactory;
 
-  public function keluarga()
+  public function user()
   {
     return $this->belongsTo(User::class);
   }

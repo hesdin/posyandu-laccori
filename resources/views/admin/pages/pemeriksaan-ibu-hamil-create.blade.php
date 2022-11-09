@@ -14,7 +14,7 @@
 
             </div>
         </div>
-        <form action="{{ route('pemeriksaan-ibu-hamil.store') }}" method="post">
+        <form action="{{ route('admin.pemeriksaan-ibu-hamil.store') }}" method="post">
             @csrf
             <div class="row my-4">
                 <div class="col-md-6">
@@ -25,13 +25,14 @@
                                     value="{{ Crypt::encryptString($ibu_hamil->id) }}">
                                 <div class="form-group mb-2">
                                     <label for="tgl_pemeriksaan">Tanggal Pemeriksaan</label>
-                                    <input class="form-control" id="tgl_pemeriksaan" type="date" name="tgl_pemeriksaan"
+                                    <input class="form-control" id="tgl_pemeriksaan" type="date" name="tgl_pemeriksaan" value="{{ \Carbon\Carbon::today()->isoFormat('Y-m-d') }}"
                                         required>
                                 </div>
 
                                 <div class="form-group mb-2">
                                     <label for="keluhan">Keluhan Sekarang</label>
-                                    <input class="form-control" id="keluhan" type="text" name="keluhan" required>
+                                    <input class="form-control" id="keluhan" type="text" name="keluhan">
+                                    <p class="text-danger mb-0"><em>Kosongkan jika tidak ada keluhan</em></p>
                                 </div>
 
                                 <div class="form-group mb-2">

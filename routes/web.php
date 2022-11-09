@@ -19,6 +19,7 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth', 'PreventBackHistory'])->group(function () {
     Route::get('/dashboard', [UserController::class, 'dashboard'])->name('dashboard');
+    Route::get('/perkembangan-balita', [UserController::class, 'perkembanganBalita'])->name('perkembangan.balita');
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
@@ -26,12 +27,14 @@ Route::middleware(['auth', 'PreventBackHistory'])->group(function () {
 Route::prefix('admin')
     ->name('admin.')
     ->group(function () {
-        Route::middleware(['guest'])->group(function () {
-            Route::get('/login', [AuthController::class, 'loginPageAdmin'])->name('login');
+        Route::middleware(['guest:admin'])->group(function () {
+            Route::get('/', [AuthController::class, 'loginPageAdmin'])->name('login');
+            Route::post('/', [AuthController::class, 'loginCheckAdmin'])->name('login.check');
+
         });
 
-        Route::middleware(['auth'])->group(function () {
-            Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+        Route::middleware(['auth:admin'])->group(function () {
+            Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
             Route::resource('keluarga', KeluargaController::class);
             Route::resource('balita', BalitaController::class);
             Route::resource('balita-posyandu', BalitaPosyanduController::class);
@@ -40,5 +43,7 @@ Route::prefix('admin')
             Route::get('pemeriksaan-ibu-hamil/create/{id}', [PemeriksaanIbuHamilController::class, 'create'])->name('pemeriksaan-ibu-hamil.create');
 
             Route::resource('pemeriksaan-ibu-hamil', PemeriksaanIbuHamilController::class, ['except' => 'create']);
+
+            Route::get('/logout', [AuthController::class, 'logoutAdmin'])->name('logout');
         });
     });

@@ -17,7 +17,7 @@
                                 <h5 class="card-title m-0">Data Pemeriksaan Ibu {{ $ibu_hamil->nama }}</h5>
                             </div>
                             <div class="col-auto">
-                                <a href="{{ route('pemeriksaan-ibu-hamil.create', $ibu_hamil->id) }}"
+                                <a href="{{ route('admin.pemeriksaan-ibu-hamil.create', $ibu_hamil->id) }}"
                                     class="btn btn-primary"><span class="fe fe-plus fe-12 mr-2"></span>Tambah
                                     Pemeriksaan</a>
                             </div>
@@ -42,7 +42,7 @@
                                 <tr>
                                     <td style="width: 13%">Keluarga</td>
                                     <td style="width: 2%"> : </td>
-                                    <td><strong>{{ $ibu_hamil->keluarga->nama }}</strong></td>
+                                    <td><strong>{{ $ibu_hamil->user->nama }}</strong></td>
                                 </tr>
                                 <tr>
                                     <td>Anak Ke</td>
@@ -138,10 +138,10 @@
                                                             </button>
                                                             <div class="dropdown-menu dropdown-menu-right">
                                                                 <a class="dropdown-item"
-                                                                    href="{{ route('pemeriksaan-ibu-hamil.edit', $pemeriksaan->id) }}">Detail
+                                                                    href="{{ route('admin.pemeriksaan-ibu-hamil.edit', $pemeriksaan->id) }}">Detail
                                                                     / Edit</a>
                                                                 <form id="form{{ $pemeriksaan->id }}"
-                                                                    action="{{ route('pemeriksaan-ibu-hamil.destroy', $pemeriksaan->id) }}"
+                                                                    action="{{ route('admin.pemeriksaan-ibu-hamil.destroy', $pemeriksaan->id) }}"
                                                                     method="post">
                                                                     @csrf
                                                                     @method('DELETE')

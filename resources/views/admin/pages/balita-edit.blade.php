@@ -2,6 +2,10 @@
 
 @section('title', 'Edit Data Balita')
 
+@push('css')
+<link rel="stylesheet" href="{{ asset('assets/css/select2.css') }}">
+@endpush
+
 @section('content')
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -15,7 +19,7 @@
                     <div class="col-md-6">
                         <div class="card shadow">
                             <div class="card-body">
-                                <form action="{{ route('balita.update', $balita->id) }}" method="post">
+                                <form action="{{ route('admin.balita.update', $balita->id) }}" method="post">
                                     @method('PUT')
                                     @csrf
                                     <div class="modal-body">
@@ -25,12 +29,11 @@
                                                 value="{{ $balita->nama }}" required>
                                         </div>
                                         <div class="form-group mb-3">
-                                            <label for="nama_orang_tua">Nama Orang Tua</label>
-                                            <select class="form-control" id="nama_orang_tua" name="nama_orang_tua">
-                                                @foreach ($data_keluarga as $keluarga)
-                                                    <option value="{{ $keluarga->id }}"
-                                                        {{ $balita->keluarga_id == $keluarga->id ? 'selected' : '' }}>
-                                                        {{ $keluarga->nama }}</option>
+                                            <label for="user_id">Nama Orang Tua</label>
+                                            <select class="form-control select2 select2-hidden-accessible" id="user_id"
+                                                data-select2-id="user_id" tabindex="-1" aria-hidden="true" name="user_id">
+                                                @foreach ($users as $user)
+                                                    <option value="{{ $user->id }}">{{ $user->nama }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -64,4 +67,20 @@
             </div>
         </div>
     </div>
+
+    @push('script')
+    <script src='{{ asset('assets/js/select2.min.js') }}'></script>
+    <script>
+        $('.select2').select2({
+            theme: 'bootstrap4',
+        });
+        $('.select2-multi').select2({
+            multiple: true,
+            theme: 'bootstrap4',
+        });
+    </script>
+    @endpush
+
 @endsection
+
+

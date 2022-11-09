@@ -58,10 +58,10 @@
                                                 @foreach ($data_ibu_hamil as $ibu_hamil)
                                                     <tr role="row" class="odd">
                                                         <td><strong>{{ $ibu_hamil->nama }}</strong></td>
-                                                        <td><strong>{{ $ibu_hamil->keluarga->nama }}</strong></td>
+                                                        <td><strong>{{ $ibu_hamil->user->nama }}</strong></td>
                                                         <td>{{ $ibu_hamil->anak_ke }}</td>
                                                         <td>
-                                                            <a href="{{ route('pemeriksaan-ibu-hamil.show', $ibu_hamil->id) }}"
+                                                            <a href="{{ route('admin.pemeriksaan-ibu-hamil.show', $ibu_hamil->id) }}"
                                                                 type="button" class="btn mb-2 btn-primary btn-sm"><span
                                                                     class="fe fe-arrow-right fe-12 mr-1"></span>
                                                                 Pemeriksaan</a>

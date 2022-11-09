@@ -15,7 +15,7 @@
                     <div class="col-md-6">
                         <div class="card shadow">
                             <div class="card-body">
-                                <form action="{{ route('balita-posyandu.update', $posyandu->id) }}" method="post">
+                                <form action="{{ route('admin.balita-posyandu.update', $posyandu->id) }}" method="post">
                                     @method('PUT')
                                     @csrf
                                     <div class="modal-body">

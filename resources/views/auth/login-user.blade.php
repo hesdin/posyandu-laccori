@@ -40,7 +40,7 @@
                 <a class="navbar-brand mx-auto mt-2 flex-fill text-center mb-3" href="{{ route('login') }}">
                     <img src="{{ asset('assets/img/logo.png') }}" alt="" style="width: 150px">
                 </a>
-                <h1 class="h6 mb-3">Login User</h1>
+                <h1 class="h4 mb-3">Login User</h1>
                 <div class="form-group">
                     <label for="no_kk" class="sr-only">Nomor Induk Penduduk</label>
                     <input type="text" id="no_kk" class="form-control form-control-lg" placeholder="No KK"

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\IbuHamil;
-use App\Models\Keluarga;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class IbuHamilController extends Controller
@@ -16,11 +16,11 @@ class IbuHamilController extends Controller
   public function index()
   {
     $data_ibu_hamil = IbuHamil::all();
-    $data_keluarga = Keluarga::all();
+    $users = User::all();
 
     $data = [
       'data_ibu_hamil' => $data_ibu_hamil,
-      'data_keluarga' => $data_keluarga,
+      'users' => $users,
 
     ];
 
@@ -48,7 +48,7 @@ class IbuHamilController extends Controller
     $ibu_hamil = new IbuHamil();
 
     $ibu_hamil->nama = $request->nama;
-    $ibu_hamil->keluarga_id = $request->keluarga_id;
+    $ibu_hamil->user_id = $request->user_id;
     $ibu_hamil->anak_ke = $request->anak_ke;
     $ibu_hamil->tgl_lahir = $request->tgl_lahir;
 
@@ -81,11 +81,11 @@ class IbuHamilController extends Controller
   public function edit($id)
   {
     $ibu_hamil = IbuHamil::findOrFail($id);
-    $data_keluarga = Keluarga::all();
+    $users = User::all();
 
     $data = [
       'ibu_hamil' => $ibu_hamil,
-      'data_keluarga' => $data_keluarga,
+      'users' => $users,
 
     ];
 
@@ -104,14 +104,14 @@ class IbuHamilController extends Controller
     $ibu_hamil = IbuHamil::findOrFail($id);
 
     $ibu_hamil->nama = $request->nama;
-    $ibu_hamil->keluarga_id = $request->keluarga_id;
+    $ibu_hamil->user_id = $request->user_id;
     $ibu_hamil->anak_ke = $request->anak_ke;
     $ibu_hamil->tgl_lahir = $request->tgl_lahir;
 
     $save = $ibu_hamil->update();
 
     if ($save) {
-      return redirect()->route('ibu-hamil.index')->with('success', 'Data berhasil diubah');
+      return redirect()->route('admin.ibu-hamil.index')->with('success', 'Data berhasil diubah');
     } else {
       dd('error');
     }

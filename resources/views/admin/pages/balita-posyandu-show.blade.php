@@ -35,7 +35,7 @@
                                 <tr>
                                     <td style="width: 13%">Nama Orang Tua</td>
                                     <td style="width: 2%"> : </td>
-                                    <td><strong>{{ $balita->keluarga->nama }}</strong></td>
+                                    <td><strong>{{ $balita->user->nama }}</strong></td>
                                 </tr>
                                 <tr>
                                     <td>Tanggal Lahir</td>
@@ -46,7 +46,7 @@
                                 <tr>
                                     <td>Jenis Kelamin</td>
                                     <td>:</td>
-                                    <td><strong>{{ $balita->jenis_kelamin }}</strong></td>
+                                    <td><strong>{{ ucfirst($balita->jenis_kelamin) }}</strong></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -110,9 +110,9 @@
                                                             </button>
                                                             <div class="dropdown-menu dropdown-menu-right">
                                                                 <a class="dropdown-item"
-                                                                    href="{{ route('balita-posyandu.edit', $posyandu->id) }}">Edit</a>
+                                                                    href="{{ route('admin.balita-posyandu.edit', $posyandu->id) }}">Edit</a>
                                                                 <form id="form{{ $posyandu->id }}"
-                                                                    action="{{ route('balita-posyandu.destroy', $posyandu->id) }}"
+                                                                    action="{{ route('admin.balita-posyandu.destroy', $posyandu->id) }}"
                                                                     method="post">
                                                                     @csrf
                                                                     @method('DELETE')
@@ -148,13 +148,13 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('balita-posyandu.store') }}" method="post">
+                <form action="{{ route('admin.balita-posyandu.store') }}" method="post">
                     @csrf
                     <div class="modal-body">
                         <input type="hidden" name="balita_id" value="{{ Crypt::encryptString($balita->id) }}">
                         <div class="form-group mb-3">
                             <label for="tgl_posyandu">Tanggal Posyandu</label>
-                            <input class="form-control" id="tgl_posyandu" type="date" name="tgl_posyandu" required>
+                            <input class="form-control" id="tgl_posyandu" type="date" name="tgl_posyandu" value="{{ \Carbon\Carbon::today()->isoFormat('Y-m-d') }}" required>
                         </div>
 
                         <div class="form-group mb-3">

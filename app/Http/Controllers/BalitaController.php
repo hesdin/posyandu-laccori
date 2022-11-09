@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Balita;
-use App\Models\Keluarga;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BalitaController extends Controller
@@ -16,11 +16,11 @@ class BalitaController extends Controller
   public function index()
   {
     $data_balita = Balita::all();
-    $data_keluarga = Keluarga::all();
+    $users = User::all();
 
     $data = [
       'data_balita' => $data_balita,
-      'data_keluarga' => $data_keluarga,
+      'users' => $users,
     ];
 
     return view('admin.pages.balita', $data);
@@ -47,7 +47,7 @@ class BalitaController extends Controller
     $balita = new Balita();
 
     $balita->nama = $request->nama;
-    $balita->keluarga_id = $request->nama_orang_tua;
+    $balita->user_id = $request->user_id;
     $balita->jenis_kelamin = $request->jenis_kelamin;
     $balita->tgl_lahir = $request->tgl_lahir;
 
@@ -80,11 +80,11 @@ class BalitaController extends Controller
   public function edit($id)
   {
     $balita = Balita::findOrFail($id);
-    $data_keluarga = Keluarga::all();
+    $users = User::all();
 
     $data = [
       'balita' => $balita,
-      'data_keluarga' => $data_keluarga,
+      'users' => $users,
     ];
 
     return view('admin.pages.balita-edit', $data);
@@ -101,14 +101,14 @@ class BalitaController extends Controller
   {
     $balita = Balita::findOrFail($id);
     $balita->nama = $request->nama;
-    $balita->keluarga_id = $request->nama_orang_tua;
+    $balita->user_id = $request->user_id;
     $balita->jenis_kelamin = $request->jenis_kelamin;
     $balita->tgl_lahir = $request->tgl_lahir;
 
     $save = $balita->update();
 
     if ($save) {
-      return redirect()->route('balita.index')->with('success', 'Data berhasil diubah');
+      return redirect()->route('admin.balita.index')->with('success', 'Data berhasil diubah');
     } else {
       dd('error');
     }

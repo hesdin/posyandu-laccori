@@ -100,7 +100,7 @@ class KeluargaController extends Controller
     $save = $keluarga->update();
 
     if ($save) {
-      return redirect()->route('keluarga.index')->with('success', 'Data berhasil diubah');
+      return redirect()->route('admin.keluarga.index')->with('success', 'Data berhasil diubah');
     }
   }
 

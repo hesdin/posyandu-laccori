@@ -54,11 +54,11 @@
                                                 @foreach ($data_balita as $balita)
                                                     <tr role="row" class="odd">
                                                         <td><strong>{{ $balita->nama }}</strong></td>
-                                                        <td>{{ $balita->keluarga->nama }}</td>
+                                                        <td>{{ $balita->user->nama }}</td>
                                                         <td>{{ \Carbon\Carbon::parse($balita->tgl_lahir)->isoFormat('D-MMM-Y') }}
                                                         <td>{{ $balita->jenis_kelamin }}</td>
                                                         <td>
-                                                            <a href="{{ route('balita-posyandu.show', $balita->id) }}"
+                                                            <a href="{{ route('admin.balita-posyandu.show', $balita->id) }}"
                                                                 type="button" class="btn mb-2 btn-primary btn-sm"><span
                                                                     class="fe fe-arrow-right fe-12 mr-1"></span>Data
                                                                 Posyandu</a>

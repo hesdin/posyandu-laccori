@@ -72,7 +72,7 @@ class PemeriksaanIbuHamilController extends Controller
     $save = $pemeriksaan->save();
 
     if ($save) {
-      return redirect()->route('pemeriksaan-ibu-hamil.show', $ibu_hamil_id)->with('success', 'Data Pemeriksaan Berhasil ditambahkan');
+      return redirect()->route('admin.pemeriksaan-ibu-hamil.show', $ibu_hamil_id)->with('success', 'Data Pemeriksaan Berhasil ditambahkan');
     } else {
       dd('error');
     }
@@ -139,7 +139,7 @@ class PemeriksaanIbuHamilController extends Controller
     $save = $pemeriksaan->update();
 
     if ($save) {
-      return redirect()->route('pemeriksaan-ibu-hamil.show', $pemeriksaan->ibu_hamil_id)->with('success', 'Data Pemeriksaan Berhasil diubah');
+      return redirect()->route('admin.pemeriksaan-ibu-hamil.show', $pemeriksaan->ibu_hamil_id)->with('success', 'Data Pemeriksaan Berhasil diubah');
     } else {
       dd('error');
     }

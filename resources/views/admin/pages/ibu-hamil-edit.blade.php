@@ -19,7 +19,7 @@
                     <div class="col-md-6">
                         <div class="card shadow">
                             <div class="card-body">
-                                <form action="{{ route('ibu-hamil.update', $ibu_hamil->id) }}" method="post">
+                                <form action="{{ route('admin.ibu-hamil.update', $ibu_hamil->id) }}" method="post">
                                     @method('PUT')
                                     @csrf
                                     <div class="modal-body">
@@ -32,11 +32,11 @@
                                             <label for="simple-select2">Keluarga</label>
                                             <select class="form-control select2 select2-hidden-accessible"
                                                 id="simple-select2" data-select2-id="simple-select2" tabindex="-1"
-                                                aria-hidden="true" name="keluarga_id">
-                                                @foreach ($data_keluarga as $keluarga)
-                                                    <option value="{{ $keluarga->id }}"
-                                                        {{ $ibu_hamil->keluarga_id == $keluarga->id ? 'selected' : '' }}>
-                                                        {{ $keluarga->nama }}</option>
+                                                aria-hidden="true" name="user_id">
+                                                @foreach ($users as $user)
+                                                    <option value="{{ $user->id }}"
+                                                        {{ $ibu_hamil->user_id == $user->id ? 'selected' : '' }}>
+                                                        {{ $user->nama }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

@@ -13,7 +13,7 @@
                     <div class="col-md-6">
                         <div class="card shadow">
                             <div class="card-body">
-                                <form action="{{ route('keluarga.update', $keluarga->id) }}" method="post">
+                                <form action="{{ route('admin.keluarga.update', $keluarga->id) }}" method="post">
                                     @method('PUT')
                                     @csrf
                                     <div class="modal-body">
@@ -38,7 +38,7 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <a href="{{ route('keluarga.index') }}" type="button"
+                                        <a href="{{ route('admin.keluarga.index') }}" type="button"
                                             class="btn mb-2 btn-secondary">Batal</a>
                                         <button type="submit" class="btn mb-2 btn-primary">Update</button>
                                     </div>

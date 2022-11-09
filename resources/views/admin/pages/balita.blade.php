@@ -3,6 +3,7 @@
 @section('title', 'Data Balita')
 
 @push('css')
+    <link rel="stylesheet" href="{{ asset('assets/css/select2.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/dataTables.bootstrap4.css') }}">
 @endpush
 
@@ -67,7 +68,7 @@
                                                     <tr role="row" class="odd">
                                                         <td><strong>{{ $balita->nama }}</strong></td>
                                                         <td>{{ \Carbon\Carbon::parse($balita->tgl_lahir)->isoFormat('D-MMM-Y') }}
-                                                        <td>{{ $balita->keluarga->nama }}</td>
+                                                        <td>{{ $balita->user->nama }}</td>
                                                         <td>{{ $balita->jenis_kelamin }}</td>
                                                         </td>
                                                         <td><button class="btn btn-sm dropdown-toggle more-horizontal"
@@ -77,9 +78,9 @@
                                                             </button>
                                                             <div class="dropdown-menu dropdown-menu-right">
                                                                 <a class="dropdown-item"
-                                                                    href="{{ route('balita.edit', $balita->id) }}">Edit</a>
+                                                                    href="{{ route('admin.balita.edit', $balita->id) }}">Edit</a>
                                                                 <form id="form{{ $balita->id }}"
-                                                                    action="{{ route('balita.destroy', $balita->id) }}"
+                                                                    action="{{ route('admin.balita.destroy', $balita->id) }}"
                                                                     method="post">
                                                                     @csrf
                                                                     @method('DELETE')
@@ -111,7 +112,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="{{ route('balita.store') }}" method="post">
+                            <form action="{{ route('admin.balita.store') }}" method="post">
                                 @csrf
                                 <div class="modal-body">
                                     <div class="form-group mb-3">
@@ -119,10 +120,11 @@
                                         <input type="text" name="nama" class="form-control" required>
                                     </div>
                                     <div class="form-group mb-3">
-                                        <label for="nama_orang_tua">Nama Orang Tua</label>
-                                        <select class="form-control" id="nama_orang_tua" name="nama_orang_tua">
-                                            @foreach ($data_keluarga as $keluarga)
-                                                <option value="{{ $keluarga->id }}">{{ $keluarga->nama }}</option>
+                                        <label for="user_id">Nama Orang Tua</label>
+                                        <select class="form-control select2 select2-hidden-accessible" id="user_id"
+                                            data-select2-id="user_id" tabindex="-1" aria-hidden="true" name="user_id">
+                                            @foreach ($users as $user)
+                                                <option value="{{ $user->id }}">{{ $user->nama }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -154,6 +156,16 @@
         </div>
     </div>
     @push('script')
+        <script src='{{ asset('assets/js/select2.min.js') }}'></script>
+        <script>
+            $('.select2').select2({
+                theme: 'bootstrap4',
+            });
+            $('.select2-multi').select2({
+                multiple: true,
+                theme: 'bootstrap4',
+            });
+        </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
         <script>
             $('.show_confirm').click(function(event) {
@@ -175,12 +187,9 @@
                     });
             });
 
-            $("#alertM").show().delay(2000).fadeOut(); <
-            />
-
-            <
-            script src = '{{ asset('assets/js/jquery.dataTables.min.js') }}' >
+            $("#alertM").show().delay(2000).fadeOut();
         </script>
+        <script src='{{ asset('assets/js/jquery.dataTables.min.js') }}'></script>
         <script src='{{ asset('assets/js/dataTables.bootstrap4.min.js') }}'></script>
         <script>
             $('#dataTable-1').DataTable({
