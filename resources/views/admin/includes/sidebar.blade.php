@@ -28,7 +28,8 @@
                                 User</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href="{{ route('admin.keluarga.index') }}"><span class="ml-1 item-text">Input
+                        <a class="nav-link pl-3" href="{{ route('admin.keluarga.index') }}"><span
+                                class="ml-1 item-text">Input
                                 Data Keluarga</span></a>
                     </li>
                     <li class="nav-item">
@@ -37,29 +38,28 @@
                                 Ibu Hamil</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link pl-3" href="{{ route('admin.balita.index') }}"><span class="ml-1 item-text">Input
+                        <a class="nav-link pl-3" href="{{ route('admin.balita.index') }}"><span
+                                class="ml-1 item-text">Input
                                 Data
                                 Balita</span></a>
                     </li>
                 </ul>
             </li>
-            <li class="nav-item dropdown">
-                <a href="#data" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle nav-link">
-                    <i class="fe fe-database fe-16"></i>
-                    <span class="ml-3 item-text">Data Posyandu</span>
+
+            <li class="nav-item w-100">
+                <a class="nav-link" href="{{ route('admin.balita-posyandu.index') }}">
+                    <i class="fe fe-airplay fe-16"></i>
+                    <span class="ml-3 item-text">Balita
+                        Posyandu</span>
                 </a>
-                <ul class="list-unstyled pl-4 w-100 collapse" id="data" style="">
-                    <li class="nav-item">
-                        <a class="nav-link pl-3" href="{{ route('admin.balita-posyandu.index') }}"><span
-                                class="ml-1 item-text">Balita
-                                Posyandu</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link pl-3" href="{{ route('admin.pemeriksaan-ibu-hamil.index') }}"><span
-                                class="ml-1 item-text">Pemeriksaan
-                                Ibu Hamil</span></a>
-                    </li>
-                </ul>
+            </li>
+
+            <li class="nav-item w-100">
+                <a class="nav-link" href="{{ route('admin.pemeriksaan-ibu-hamil.index') }}">
+                    <i class="fe fe-disc fe-16"></i>
+                    <span class="ml-3 item-text">Pemeriksaan
+                        Ibu Hamil</span>
+                </a>
             </li>
 
             <li class="nav-item dropdown">

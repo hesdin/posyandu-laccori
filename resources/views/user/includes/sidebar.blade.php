@@ -25,12 +25,22 @@
                 </a>
             </li>
 
+            @if (auth()->user()->ibuHamil()->exists())
+                <li class="nav-item w-100">
+                    <a class="nav-link" href="{{ route('dashboard') }}">
+                        <i class="fe fe-disc fe-16"></i>
+                        <span class="ml-3 item-text">Perkembangan Ibu Hamil</span>
+                    </a>
+                </li>
+            @endif
+
             <li class="nav-item w-100">
                 <a class="nav-link" href="{{ route('dashboard') }}">
-                    <i class="fe fe-disc fe-16"></i>
-                    <span class="ml-3 item-text">Perkembangan Ibu Hamil</span>
+                    <i class="fe fe-user fe-16"></i>
+                    <span class="ml-3 item-text">Profile</span>
                 </a>
             </li>
+
 
         </ul>
         <div class="btn-box w-100 mt-4 mb-1">
