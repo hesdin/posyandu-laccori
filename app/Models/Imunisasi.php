@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Imunisasi extends Model
 {
-    use HasFactory;
+  use HasFactory;
+
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array
+   */
+  protected $fillable = ['nama', 'umur_pemberian'];
 }

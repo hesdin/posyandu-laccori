@@ -16,6 +16,7 @@ return new class extends Migration
     Schema::create('imunisasis', function (Blueprint $table) {
       $table->id();
       $table->string('nama');
+      $table->string('umur_pemberian');
       $table->timestamps();
     });
   }

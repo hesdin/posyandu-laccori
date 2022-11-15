@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Imunisasi;
 use Illuminate\Http\Request;
 
 class ImunisasiController extends Controller
@@ -13,7 +14,8 @@ class ImunisasiController extends Controller
    */
   public function index()
   {
-    return view('admin.pages.imunisasi');
+    $d_imunisasi = Imunisasi::all();
+    return view('admin.pages.imunisasi', compact('d_imunisasi'));
   }
 
   /**
@@ -34,7 +36,18 @@ class ImunisasiController extends Controller
    */
   public function store(Request $request)
   {
-    //
+    $request->validate([
+      'nama' => 'required',
+      'umur_pemberian' => 'required',
+    ]);
+
+    $imunisasi = Imunisasi::create($request->all());
+
+    if ($imunisasi) {
+      return back()->with('success', 'Data berhasil ditambahkan');
+    } else {
+      dd('error');
+    }
   }
 
   /**
@@ -79,6 +92,14 @@ class ImunisasiController extends Controller
    */
   public function destroy($id)
   {
-    //
+    $imunisasi = Imunisasi::findOrFail($id);
+
+    $delete = $imunisasi->delete();
+
+    if ($delete) {
+      return back()->with('success', 'Data berhasil dihapus');
+    } else {
+      dd('error');
+    }
   }
 }

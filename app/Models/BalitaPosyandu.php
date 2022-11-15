@@ -13,4 +13,9 @@ class BalitaPosyandu extends Model
   {
     return $this->belongsTo(Balita::class);
   }
+
+  public function imunisasi()
+  {
+    return $this->belongsTo(Imunisasi::class);
+  }
 }

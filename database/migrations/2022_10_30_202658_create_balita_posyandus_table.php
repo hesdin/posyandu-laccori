@@ -16,13 +16,22 @@ return new class extends Migration
     Schema::create('balita_posyandus', function (Blueprint $table) {
       $table->id();
       $table->foreignId('balita_id')
+        ->nullable()
         ->constrained('balitas')
         ->onUpdate('cascade')
         ->onDelete('cascade');
+
+      $table->foreignId('imunisasi_id')
+        ->nullable()
+        ->constrained('imunisasis')
+        ->onUpdate('cascade')
+        ->onDelete('cascade');
+
       $table->date('tgl_posyandu');
       $table->double('berat_badan');
       $table->double('tinggi_badan');
       $table->double('lingkar_kepala');
+
       $table->timestamps();
     });
   }
