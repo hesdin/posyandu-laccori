@@ -18,16 +18,18 @@
                 </a>
             </li>
 
-            <li class="nav-item w-100">
-                <a class="nav-link" href="{{ route('perkembangan.balita') }}">
-                    <i class="fe fe-airplay fe-16"></i>
-                    <span class="ml-3 item-text">Perkembangan Balita</span>
-                </a>
-            </li>
+            @if (auth()->user()->balita()->exists())
+                <li class="nav-item w-100">
+                    <a class="nav-link" href="{{ route('perkembangan.balita') }}">
+                        <i class="fe fe-airplay fe-16"></i>
+                        <span class="ml-3 item-text">Perkembangan Balita</span>
+                    </a>
+                </li>
+            @endif
 
             @if (auth()->user()->ibuHamil()->exists())
                 <li class="nav-item w-100">
-                    <a class="nav-link" href="{{ route('dashboard') }}">
+                    <a class="nav-link" href="{{ route('perkembangan.ibu.hamil') }}">
                         <i class="fe fe-disc fe-16"></i>
                         <span class="ml-3 item-text">Perkembangan Ibu Hamil</span>
                     </a>
@@ -35,7 +37,7 @@
             @endif
 
             <li class="nav-item w-100">
-                <a class="nav-link" href="{{ route('dashboard') }}">
+                <a class="nav-link" href="{{ route('profile') }}">
                     <i class="fe fe-user fe-16"></i>
                     <span class="ml-3 item-text">Profile</span>
                 </a>

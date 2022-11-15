@@ -12,71 +12,106 @@
                     </div>
                 </div>
                 {{-- Start Widgets --}}
-                <div class="row my-4">
-                    <div class="col-md-4">
-                        <div class="card shadow mb-4">
+                <div class="row">
+                    <div class="col-md-6 col-xl-4 mb-4">
+                        <div class="card shadow">
                             <div class="card-body">
                                 <div class="row align-items-center">
-                                    <div class="col">
-                                        <small class="text-muted mb-1">Page Views</small>
-                                        <h3 class="card-title mb-0">1168</h3>
-                                        <p class="small text-muted mb-0"><span
-                                                class="fe fe-arrow-down fe-12 text-danger"></span><span>-18.9% Last
-                                                week</span></p>
+                                    <div class="col-3 text-center">
+                                        <span class="circle circle-sm bg-primary">
+                                            <i class="fe fe-16 fe-users text-white mb-0"></i>
+                                        </span>
                                     </div>
-                                    <div class="col-4 text-right">
-                                        <span class="sparkline inlineline"><canvas
-                                                style="display: inline-block; width: 73.1667px; height: 32px; vertical-align: top;"
-                                                width="73" height="32"></canvas></span>
+                                    <div class="col pr-0">
+                                        <p class="mb-0">Jumlah Keluarga</p>
+                                        <span class="h3 mb-0">{{ $keluarga }}</span>
+                                        <span class="small text-success">+16.5%</span>
                                     </div>
-                                </div> <!-- /. row -->
-                            </div> <!-- /. card-body -->
-                        </div> <!-- /. card -->
-                    </div> <!-- /. col -->
-                    <div class="col-md-4">
-                        <div class="card shadow mb-4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-xl-4 mb-4">
+                        <div class="card shadow">
                             <div class="card-body">
                                 <div class="row align-items-center">
-                                    <div class="col">
-                                        <small class="text-muted mb-1">Conversion</small>
-                                        <h3 class="card-title mb-0">68</h3>
-                                        <p class="small text-muted mb-0"><span
-                                                class="fe fe-arrow-up fe-12 text-warning"></span><span>+1.9% Last
-                                                week</span></p>
+                                    <div class="col-3 text-center">
+                                        <span class="circle circle-sm bg-primary">
+                                            <i class="fe fe-16 fe-user text-white mb-0"></i>
+                                        </span>
                                     </div>
-                                    <div class="col-4 text-right">
-                                        <span class="sparkline inlinepie"><canvas
-                                                style="display: inline-block; width: 32px; height: 32px; vertical-align: top;"
-                                                width="32" height="32"></canvas></span>
+                                    <div class="col pr-0">
+                                        <p class="mb-0">Jumlah Ibu Hamil</p>
+                                        <span class="h3 mb-0">{{ $ibuHamil }}</span>
+                                        <span class="small text-success">+16.5%</span>
                                     </div>
-                                </div> <!-- /. row -->
-                            </div> <!-- /. card-body -->
-                        </div> <!-- /. card -->
-                    </div> <!-- /. col -->
-                    <div class="col-md-4">
-                        <div class="card shadow mb-4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-xl-4 mb-4">
+                        <div class="card shadow">
                             <div class="card-body">
                                 <div class="row align-items-center">
-                                    <div class="col">
-                                        <small class="text-muted mb-1">Visitors</small>
-                                        <h3 class="card-title mb-0">108</h3>
-                                        <p class="small text-muted mb-0"><span
-                                                class="fe fe-arrow-up fe-12 text-success"></span><span>37.7% Last
-                                                week</span></p>
+                                    <div class="col-3 text-center">
+                                        <span class="circle circle-sm bg-primary">
+                                            <i class="fe fe-16 fe-user text-white mb-0"></i>
+                                        </span>
                                     </div>
-                                    <div class="col-4 text-right">
-                                        <span class="sparkline inlinebar"><canvas
-                                                style="display: inline-block; width: 40px; height: 32px; vertical-align: top;"
-                                                width="40" height="32"></canvas></span>
+                                    <div class="col pr-0">
+                                        <p class="mb-0">Jumlah Balita</p>
+                                        <span class="h3 mb-0">{{ $balita }}</span>
+                                        <span class="small text-success">+16.5%</span>
                                     </div>
-                                </div> <!-- /. row -->
-                            </div> <!-- /. card-body -->
-                        </div> <!-- /. card -->
-                    </div> <!-- /. col -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 {{-- End Widgets --}}
             </div>
         </div>
+
+        {{-- Chart --}}
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <strong>Grafik Jumlah Pemeriksaan Ibu Hamil</strong>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                            </div>
+                        </div> <!-- .row -->
+                    </div> <!-- .card-body -->
+                </div> <!-- .card -->
+            </div>
+
+            <div class="col-md-6">
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <strong>Grafik Jumlah Posyandu Anak</strong>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+
+                            </div>
+                        </div> <!-- .row -->
+                    </div> <!-- .card-body -->
+                </div> <!-- .card -->
+            </div>
+
+
+
+        </div>
+
+
+    </div>
     </div>
 
 @endsection

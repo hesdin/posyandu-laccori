@@ -7,64 +7,66 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function loginPage()
-    {
-        return view('auth.login-user');
+  public function loginPage()
+  {
+    return view('auth.login-user');
+  }
+
+  public function loginCheck(Request $request)
+  {
+    $credentials = $request->validate([
+      'no_kk' => ['required'],
+      'password' => ['required'],
+    ]);
+
+    if (Auth::attempt($credentials)) {
+      $request->session()->regenerate();
+
+      return redirect()->route('dashboard');
     }
 
-    public function loginCheck(Request $request)
-    {
-        $credentials = $request->validate([
-            'no_kk' => ['required'],
-            'password' => ['required'],
-        ]);
+    return back()->with('error', 'NIK atau password salah!');
+  }
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+  public function logout(Request $request)
+  {
+    Auth::logout();
 
-            return redirect()->route('dashboard');
-        }
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
 
-        return back()->with('error', 'NIK atau password salah!');
+    return redirect('/');
+  }
+
+  // Admin Auth
+  public function loginPageAdmin()
+  {
+    return view('auth.login-admin');
+  }
+
+  public function loginCheckAdmin(Request $request)
+  {
+    $credentials = $request->validate([
+      'username' => ['required'],
+      'password' => ['required'],
+    ]);
+
+    if (Auth::guard('admin')->attempt($credentials)) {
+      $request->session()->regenerate();
+
+      return redirect()->route('admin.dashboard');
     }
 
-    public function logout(Request $request)
-    {
-        Auth::logout();
+    return back()->with('error', 'Username atau password salah!');
+  }
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+  public function logoutAdmin(Request $request)
+  {
+    Auth::guard('admin')->logout();
 
-        return redirect('/');
-    }
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
 
-    // Admin Auth
-    public function loginPageAdmin()
-    {
-        return view('auth.login-admin');
-    }
-
-    public function loginCheckAdmin(Request $request)
-    {
-        $credentials = $request->validate([
-            'username' => ['required'],
-            'password' => ['required'],
-        ]);
-
-        if (Auth::guard('admin')->attempt($credentials)) {
-            $request->session()->regenerate();
-
-            return redirect()->route('admin.dashboard');
-        }
-    }
-
-    public function logoutAdmin(Request $request)
-    {
-        Auth::guard('admin')->logout();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect()->route('admin.logout');
-    }
+    return redirect()->route('admin.logout');
+  }
 }

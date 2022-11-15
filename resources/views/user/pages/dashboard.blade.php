@@ -1,5 +1,7 @@
 @extends('user.app')
 
+@section('title', 'Dashboard')
+
 @section('content')
     <div class="col-md-12 mb-4">
         <div class="card profile shadow">
@@ -13,8 +15,8 @@
                         <div class="row align-items-center">
                             <div class="col-md-7">
                                 <h5 class="mb-1">Aplikasi Pengolahan Data Balita dan Ibu Hamil</h5>
-                                <p class="mb-3"><span class="p-2 badge badge-dark badge-xl">Desa Laccori, Kecamatan Dua
-                                        Boccoe</span></p>
+                                {{-- <p class="mb-3"><span class="p-2 badge badge-dark badge-xl">Desa Laccori, Kecamatan Dua
+                                        Boccoe</span></p> --}}
                             </div>
                             <div class="col">
                             </div>
@@ -36,10 +38,10 @@
                                 <span
                                     class="small text-dark mb-0">{{ \Carbon\Carbon::now()->isoFormat('dddd, D MMMM Y') }}</span>
                             </div>
-                            <div class="col mb-2">
+                            {{-- <div class="col mb-2">
                                 <button type="button" class="btn btn-secondary">Profile</button>
                                 <button type="button" class="btn btn-primary">Message</button>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div> <!-- / .row- -->

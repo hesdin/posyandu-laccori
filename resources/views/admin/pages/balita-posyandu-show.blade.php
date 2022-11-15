@@ -154,7 +154,8 @@
                         <input type="hidden" name="balita_id" value="{{ Crypt::encryptString($balita->id) }}">
                         <div class="form-group mb-3">
                             <label for="tgl_posyandu">Tanggal Posyandu</label>
-                            <input class="form-control" id="tgl_posyandu" type="date" name="tgl_posyandu" value="{{ \Carbon\Carbon::today()->isoFormat('Y-m-d') }}" required>
+                            <input class="form-control" id="tgl_posyandu" type="date" name="tgl_posyandu"
+                                value="{{ \Carbon\Carbon::today()->isoFormat('Y-m-d') }}" required>
                         </div>
 
                         <div class="form-group mb-3">

@@ -44,21 +44,23 @@ class User extends Authenticatable
     'email_verified_at' => 'datetime',
   ];
 
-  /**
-   * Get the nama balita.
-   */
-  // public function carOwner()
-  // {
-  //   return $this->hasOneThrough(Owner::class, Car::class);
-  // }
-
   public function balita()
   {
     return $this->hasOne(Balita::class)->latest();
   }
 
+  public function balitaPosyandu()
+  {
+    return $this->hasManyThrough(BalitaPosyandu::class, Balita::class);
+  }
+
   public function ibuHamil()
   {
     return $this->hasOne(IbuHamil::class);
+  }
+
+  public function pemeriksaanIbuHamil()
+  {
+    return $this->hasManyThrough(PemeriksaanIbuHamil::class, IbuHamil::class);
   }
 }

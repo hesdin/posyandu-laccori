@@ -1,5 +1,11 @@
 @extends('user.app')
 
+@section('title', 'Perkembangan Balita')
+
+@push('css')
+    <link rel="stylesheet" href="{{ asset('assets/css/dataTables.bootstrap4.css') }}">
+@endpush
+
 @section('content')
     <div class="col-12 mb-4">
         <div class="card shadow">
@@ -50,8 +56,6 @@
                 </table>
             </div>
         </div> <!-- / .card -->
-
-
     </div>
 
     <div class="col-12 mb-4">
@@ -60,7 +64,7 @@
                 <div class="card-header" id="headingTwo">
                     <a role="button" href="#collapseTwo" data-toggle="collapse" data-target="#collapseTwo"
                         aria-expanded="true" aria-controls="collapseTwo">
-                        <strong>Grafik Perkembangan Balita - {{ auth()->user()->balita->nama }}</strong>
+                        <strong>Grafik Perkembangan Balita</strong>
                     </a>
                 </div>
                 <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion2"
@@ -80,7 +84,45 @@
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion2"
                     style="">
                     <div class="card-body">
-
+                        <!-- table -->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="table table-sm datatables dataTable no-footer" id="dataTable-1" role="grid"
+                                    aria-describedby="dataTable-1_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable-1" rowspan="1"
+                                                colspan="1" style="width: 68.8px;"
+                                                aria-label="Tanggal Posyandu: activate to sort column ascending">
+                                                Tanggal Posyandu</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable-1" rowspan="1"
+                                                colspan="1" style="width: 52.05px;"
+                                                aria-label="Berat Badan: activate to sort column ascending">Berat
+                                                Badan</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable-1" rowspan="1"
+                                                colspan="1" style="width: 52.05px;"
+                                                aria-label="Tinggi Badan: activate to sort column ascending">Tinggi
+                                                Badan</th>
+                                            <th class="sorting" tabindex="0" aria-controls="dataTable-1" rowspan="1"
+                                                colspan="1" style="width: 93.9833px;"
+                                                aria-label="Lingkar Kepala: activate to sort column ascending">
+                                                Lingkar Kepala</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (auth()->user()->balitaPosyandu as $posyandu)
+                                            <tr role="row" class="odd">
+                                                <td>{{ \Carbon\Carbon::parse($posyandu->tgl_posyandu)->isoFormat('DD/MMM/Y') }}
+                                                </td>
+                                                <td>{{ $posyandu->berat_badan }} Kg</td>
+                                                <td>{{ $posyandu->tinggi_badan }} Cm</td>
+                                                <td>{{ $posyandu->lingkar_kepala }} Cm</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> <!-- simple table -->
                     </div>
                 </div>
             </div>
@@ -91,4 +133,19 @@
     <script src="{{ $chart->cdn() }}"></script>
 
     {{ $chart->script() }}
+
+    @push('script')
+        <script src='{{ asset('assets/js/jquery.dataTables.min.js') }}'></script>
+        <script src='{{ asset('assets/js/dataTables.bootstrap4.min.js') }}'></script>
+        <script>
+            $('#dataTable-1').DataTable({
+                autoWidth: true,
+                "lengthMenu": [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "All"]
+                ]
+            });
+        </script>
+    @endpush
+
 @endsection

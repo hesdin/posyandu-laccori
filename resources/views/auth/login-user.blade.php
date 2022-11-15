@@ -25,15 +25,15 @@
     <div class="wrapper vh-100">
         <div class="row align-items-center h-100">
 
-            <form class="col-lg-3 col-md-4 col-10 mx-auto text-center" action="{{ route('login.check') }}"
+            <form class="col-lg-4 col-md-4 col-10 mx-auto text-center" action="{{ route('login.check') }}"
                 method="post">
                 @if (session()->has('error'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Gagal!</strong> {{ session()->get('error') }} <button
-                        type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong>Gagal!</strong> {{ session()->get('error') }} <button type="button" class="close"
+                            data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
                 @endif
 
                 @csrf

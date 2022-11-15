@@ -23,10 +23,10 @@
                     <span class="ml-3 item-text">Input Data</span>
                 </a>
                 <ul class="list-unstyled pl-4 w-100 collapse" id="input" style="">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link pl-3" href="./table_basic.html"><span class="ml-1 item-text">Input Data
                                 User</span></a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link pl-3" href="{{ route('admin.keluarga.index') }}"><span
                                 class="ml-1 item-text">Input
@@ -44,6 +44,13 @@
                                 Balita</span></a>
                     </li>
                 </ul>
+            </li>
+
+            <li class="nav-item w-100">
+                <a class="nav-link" href="{{ route('admin.imunisasi.index') }}">
+                    <i class="fe fe-plus-square fe-16"></i>
+                    <span class="ml-3 item-text">Imunisasi Vaksin</span>
+                </a>
             </li>
 
             <li class="nav-item w-100">
