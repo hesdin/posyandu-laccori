@@ -11,7 +11,7 @@
         </span>
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-        <p class="dropdown-item">{{ auth()->user()->username }}</p>
+        <p class="dropdown-item">{{ auth()->user()->nama }}</p>
         <a class="dropdown-item" href="{{ route('admin.logout') }}">Logout</a>
       </div>
     </li>

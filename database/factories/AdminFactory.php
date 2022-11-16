@@ -17,9 +17,9 @@ class AdminFactory extends Factory
   public function definition()
   {
     return [
-      'username' => 'admin1',
-      'nama' => 'hesdin',
-      'password' => bcrypt('123'),
+      'username' => 'admin',
+      'nama' => 'ayu',
+      'password' => bcrypt('pass123'),
     ];
   }
 }
