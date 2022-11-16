@@ -18,4 +18,9 @@ class BalitaPosyandu extends Model
   {
     return $this->belongsTo(Imunisasi::class);
   }
+
+  public function keluarga()
+  {
+    return $this->hasOneThrough(Balita::class, User::class);
+  }
 }

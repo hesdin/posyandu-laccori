@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IbuHamilController;
 use App\Http\Controllers\ImunisasiController;
 use App\Http\Controllers\KeluargaController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PemeriksaanIbuHamilController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,16 @@ Route::prefix('admin')
       Route::get('pemeriksaan-ibu-hamil/create/{id}', [PemeriksaanIbuHamilController::class, 'create'])->name('pemeriksaan-ibu-hamil.create');
 
       Route::resource('pemeriksaan-ibu-hamil', PemeriksaanIbuHamilController::class, ['except' => 'create']);
+
+      // DompPDF
+      Route::get('laporan/posyandu-balita', [LaporanController::class, 'posyanduBalita'])->name('posyandu.balita');
+      Route::post('laporan/posyandu', [LaporanController::class, 'laporanPosyandu'])->name('laporan.posyandu.balita');
+
+      Route::get('laporan/ibu-hamil', [LaporanController::class, 'ibuHamil'])->name('ibu.hamil');
+      Route::post('laporan/ibu-hamil', [LaporanController::class, 'laporanIbuHamil'])->name('laporan.ibu.hamil');
+
+
+
 
       Route::get('/logout', [AuthController::class, 'logoutAdmin'])->name('logout');
     });
