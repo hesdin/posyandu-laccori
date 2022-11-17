@@ -10,30 +10,30 @@ use Illuminate\Support\Str;
  */
 class UserFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition()
-    {
-        return [
-            'no_kk' => random_int(1000000000000000, 9999999999999999),
-            'nama' => $this->faker->name(),
-            'alamat' => $this->faker->address(),
-            'password' => bcrypt('password'),
-          ];
-    }
+  /**
+   * Define the model's default state.
+   *
+   * @return array<string, mixed>
+   */
+  public function definition()
+  {
+    return [
+      'no_kk' => random_int(1000000000000000, 9999999999999999),
+      'nama' => $this->faker->name(),
+      'alamat' => $this->faker->address(),
+      'password' => bcrypt('password'),
+    ];
+  }
 
-    /**
-     * Indicate that the model's email address should be unverified.
-     *
-     * @return static
-     */
-    public function unverified()
-    {
-        return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
-        ]);
-    }
+  /**
+   * Indicate that the model's email address should be unverified.
+   *
+   * @return static
+   */
+  public function unverified()
+  {
+    return $this->state(fn (array $attributes) => [
+      'email_verified_at' => null,
+    ]);
+  }
 }

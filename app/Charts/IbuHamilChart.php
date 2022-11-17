@@ -24,10 +24,18 @@ class IbuHamilChart
       $umur_kehamilan[] = $data->umur_kehamilan . ' ' . 'Bulan';
     }
 
-    return $this->chart->lineChart()
-      ->setTitle('Pertambahan Berat Badan (Kg).')
-      ->setSubtitle('Berdasarkan Usia Kehamilan.')
-      ->addData('Berat Badan (Kg)', $berat_badan)
-      ->setXAxis($umur_kehamilan);
+    if ($datas->isEmpty()) {
+      return $this->chart->lineChart()
+        ->setTitle('Data belum ada.')
+        // ->setSubtitle('Berdasarkan Usia Kehamilan.')
+        ->addData('Berat Badan (Kg)', [])
+        ->setXAxis([]);
+    } else {
+      return $this->chart->lineChart()
+        ->setTitle('Pertambahan Berat Badan (Kg).')
+        ->setSubtitle('Berdasarkan Usia Kehamilan.')
+        ->addData('Berat Badan (Kg)', $berat_badan)
+        ->setXAxis($umur_kehamilan);
+    }
   }
 }
