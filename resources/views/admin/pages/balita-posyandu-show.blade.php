@@ -102,7 +102,7 @@
                             <td>{{ $posyandu->berat_badan }} Kg</td>
                             <td>{{ $posyandu->tinggi_badan }} Cm</td>
                             <td>{{ $posyandu->lingkar_kepala }} Cm</td>
-                            <td>{{ $posyandu->imunisasi->nama }}</td>
+                            <td>{{ $posyandu->imunisasi->nama ?? '-' }}</td>
 
                             <td><button class="btn btn-sm dropdown-toggle more-horizontal" type="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -175,11 +175,13 @@
               <label for="imunisasi">Imunisasi - Pemberian Vaksin </label>
               <select class="form-control select2 select2-hidden-accessible" id="imunisasi" data-select2-id="imunisasi"
                 tabindex="-1" aria-hidden="true" name="imunisasi">
+                <option value="" selected>Tidak Vaksin</option>
                 @foreach ($d_imunisasi as $imunisasi)
                   <option value="{{ $imunisasi->id }}">{{ $imunisasi->nama }}
                   </option>
                 @endforeach
               </select>
+              <p class="text-danger font-italic">*Pilih tidak vaksin jika tidak memberikan vaksin</p>
             </div>
 
           </div>

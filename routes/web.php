@@ -9,6 +9,7 @@ use App\Http\Controllers\ImunisasiController;
 use App\Http\Controllers\KeluargaController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PemeriksaanIbuHamilController;
+use App\Http\Controllers\PuskesmasController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,25 @@ Route::middleware(['auth', 'PreventBackHistory'])->group(function () {
   Route::get('profile', [UserController::class, 'profile'])->name('profile');
   Route::patch('profile/{id}', [UserController::class, 'profileUpdate'])->name('profile.update');
   Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+});
+
+// Puskesmas
+Route::prefix('puskesmas')->name('puskesmas.')->group(function () {
+  Route::middleware(['guest:puskesmas'])->group(function () {
+    Route::get('/', [AuthController::class, 'loginPagePuskesmas'])->name('login');
+    Route::post('/', [AuthController::class, 'loginCheckPuskesmas'])->name('login.check');
+  });
+
+  Route::middleware(['auth:puskesmas'])->group(function () {
+    Route::get('dashboard', [PuskesmasController::class, 'dashboard'])->name('dashboard');
+    Route::get('laporan-balita', [PuskesmasController::class, 'laporanBalita'])->name('laporan.balita');
+    Route::post('laporan-balita', [LaporanController::class, 'laporanPosyandu'])->name('laporan.balita.pdf');
+    Route::get('laporan-ibu-hamil', [PuskesmasController::class, 'laporanIbuHamil'])->name('laporan.ibu.hamil');
+    Route::post('laporan-ibu-hamil', [LaporanController::class, 'laporanIbuHamil'])->name('laporan.ibu.hamil.pdf');
+    Route::get('profile', [PuskesmasController::class, 'profile'])->name('profile');
+    Route::patch('profile/{id}', [PuskesmasController::class, 'profileUpdate'])->name('profile.update');
+    Route::get('logout', [AuthController::class, 'logoutPuskesmas'])->name('logout');
+  });
 });
 
 // Admin Route

@@ -20,6 +20,9 @@ class LaporanController extends Controller
     $year = $request->tahun;
     $month = $request->bulan;
 
+    $myDate = $month . '/01/' . $year;
+    $date = Carbon::createFromFormat('m/d/Y', $myDate)->isoFormat('MMMM Y');
+
     $d_posyandu = BalitaPosyandu::with('balita')
       ->whereYear('created_at', $year)
       ->whereMonth('created_at', $month)
@@ -31,6 +34,7 @@ class LaporanController extends Controller
 
     $data = [
       'd_posyandu' => $d_posyandu,
+      'date' => $date,
     ];
 
     $pdf = Pdf::loadView('laporan.posyandu-balita-pdf', $data)->setPaper('f4', 'landscape');
@@ -52,6 +56,9 @@ class LaporanController extends Controller
     $year = $request->tahun;
     $month = $request->bulan;
 
+    $myDate = $month . '/01/' . $year;
+    $date = Carbon::createFromFormat('m/d/Y', $myDate)->isoFormat('MMMM Y');
+
     $d_pemeriksaan = PemeriksaanIbuHamil::with('ibuHamil')
       ->whereYear('created_at', $year)
       ->whereMonth('created_at', $month)
@@ -63,6 +70,7 @@ class LaporanController extends Controller
 
     $data = [
       'd_pemeriksaan' => $d_pemeriksaan,
+      'date' => $date,
     ];
 
     $pdf = Pdf::loadView('laporan.ibu-hamil-pdf', $data)->setPaper('f4', 'landscape');

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Admin;
+use App\Models\Puskesmas;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -20,6 +21,9 @@ class DatabaseSeeder extends Seeder
     User::factory()->count(5)->create();
 
     Admin::factory()->count(1)->create();
+
+    Puskesmas::factory()->count(1)->create();
+
 
 
     // \App\Models\User::factory(10)->create();

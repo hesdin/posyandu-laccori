@@ -52,12 +52,15 @@
                       <select class="form-control select2 select2-hidden-accessible" id="imunisasi"
                         data-select2-id="imunisasi" tabindex="-1" aria-hidden="true" name="imunisasi">
                         @foreach ($d_imunisasi as $imunisasi)
+                          <option value="" {{ $posyandu->imunisasi == null ? 'selected' : '' }}>Tidak Vaksin
+                          </option>
                           <option value="{{ $imunisasi->id }}"
                             {{ $posyandu->imunisasi_id === $imunisasi->id ? 'selected' : '' }}>
                             {{ $imunisasi->nama }}
                           </option>
                         @endforeach
                       </select>
+
                     </div>
 
                   </div>

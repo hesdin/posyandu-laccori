@@ -67,6 +67,37 @@ class AuthController extends Controller
     $request->session()->invalidate();
     $request->session()->regenerateToken();
 
-    return redirect()->route('admin.logout');
+    return redirect()->route('admin.login');
+  }
+
+  public function loginPagePuskesmas()
+  {
+    return view('auth.login-puskesmas');
+  }
+
+  public function loginCheckPuskesmas(Request $request)
+  {
+    $credentials = $request->validate([
+      'username' => ['required'],
+      'password' => ['required'],
+    ]);
+
+    if (Auth::guard('puskesmas')->attempt($credentials)) {
+      $request->session()->regenerate();
+
+      return redirect()->route('puskesmas.dashboard');
+    }
+
+    return back()->with('error', 'Username atau password salah!');
+  }
+
+  public function logoutPuskesmas(Request $request)
+  {
+    Auth::guard('puskesmas')->logout();
+
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+
+    return redirect()->route('puskesmas.login');
   }
 }

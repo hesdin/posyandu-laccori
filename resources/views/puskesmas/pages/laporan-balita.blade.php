@@ -1,9 +1,9 @@
-@extends('admin.layouts.app')
+@extends('puskesmas.app')
 
-@section('title', 'Imunisasi')
+@section('title', 'Laporan')
 
 @section('content')
-  <div class="col-md-12 col-lg-9">
+  <div class="col-md-12">
     @if (Session::has('fail'))
       <div class="alert alert-danger alert-dismissible fade show" role="alert" id="alertM">
         <strong>Gagal!</strong> {{ session('fail') }}.<button type="button" class="close" data-dismiss="alert"
@@ -23,7 +23,7 @@
         </div>
 
       </div>
-      <form action="{{ route('admin.laporan.posyandu.balita') }}" method="POST" target="_blank">
+      <form action="{{ route('puskesmas.laporan.balita.pdf') }}" method="POST" target="_blank">
         @csrf
 
         <div class="card-body my-n2">
@@ -60,6 +60,7 @@
     </div>
   </div>
 
+  {{--  --}}
   @push('script')
   @endpush
 @endsection

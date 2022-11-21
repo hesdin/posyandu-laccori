@@ -2,7 +2,7 @@
 
 return [
 
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Authentication Defaults
     |--------------------------------------------------------------------------
@@ -13,18 +13,23 @@ return [
     |
     */
 
-    'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
-    ],
+  'defaults' => [
+    'guard' => 'web',
+    'passwords' => 'users',
+  ],
 
-    'admin' => [
-        'driver' => 'eloquent',
-        'model' => App\Models\Admin::class,
-    ],
+  'admin' => [
+    'driver' => 'eloquent',
+    'model' => App\Models\Admin::class,
+  ],
+
+  'puskesmas' => [
+    'driver' => 'eloquent',
+    'model' => App\Models\Puskesmas::class,
+  ],
 
 
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Authentication Guards
     |--------------------------------------------------------------------------
@@ -41,19 +46,24 @@ return [
     |
     */
 
-    'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
-
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'admins',
-        ],
+  'guards' => [
+    'web' => [
+      'driver' => 'session',
+      'provider' => 'users',
     ],
 
-    /*
+    'admin' => [
+      'driver' => 'session',
+      'provider' => 'admins',
+    ],
+
+    'puskesmas' => [
+      'driver' => 'session',
+      'provider' => 'puskesmas',
+    ],
+  ],
+
+  /*
     |--------------------------------------------------------------------------
     | User Providers
     |--------------------------------------------------------------------------
@@ -70,24 +80,29 @@ return [
     |
     */
 
-    'providers' => [
-        'users' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
-
-        'admins' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Admin::class,
-        ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+  'providers' => [
+    'users' => [
+      'driver' => 'eloquent',
+      'model' => App\Models\User::class,
     ],
 
-    /*
+    'admins' => [
+      'driver' => 'eloquent',
+      'model' => App\Models\Admin::class,
+    ],
+
+    'puskesmas' => [
+      'driver' => 'eloquent',
+      'model' => App\Models\Puskesmas::class,
+    ],
+
+    // 'users' => [
+    //     'driver' => 'database',
+    //     'table' => 'users',
+    // ],
+  ],
+
+  /*
     |--------------------------------------------------------------------------
     | Resetting Passwords
     |--------------------------------------------------------------------------
@@ -102,21 +117,26 @@ return [
     |
     */
 
-    'passwords' => [
-        'users' => [
-            'provider' => 'users',
-            'table' => 'password_resets',
-            'expire' => 60,
-            'throttle' => 60,
-        ],
-
-        'admins' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Admin::class,
-        ],
+  'passwords' => [
+    'users' => [
+      'provider' => 'users',
+      'table' => 'password_resets',
+      'expire' => 60,
+      'throttle' => 60,
     ],
 
-    /*
+    'admins' => [
+      'driver' => 'eloquent',
+      'model' => App\Models\Admin::class,
+    ],
+
+    'puskesmas' => [
+      'driver' => 'eloquent',
+      'model' => App\Models\Puskesmas::class,
+    ],
+  ],
+
+  /*
     |--------------------------------------------------------------------------
     | Password Confirmation Timeout
     |--------------------------------------------------------------------------
@@ -127,6 +147,6 @@ return [
     |
     */
 
-    'password_timeout' => 10800,
+  'password_timeout' => 10800,
 
 ];

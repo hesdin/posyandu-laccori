@@ -61,7 +61,7 @@
   <section id="kop">
     <h1>Laporan Balita Posyandu Desa Laccorri</h1>
     <h1>Kecamatan Dua Boccoe</h1>
-    <p>Januari 2022</p>
+    <p>{{ $date }}</p>
   </section>
 
   <section id="table">
