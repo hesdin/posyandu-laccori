@@ -83,6 +83,13 @@
           </li>
         </ul>
       </li>
+
+      <li class="nav-item w-100">
+        <a class="nav-link" href="{{ route('admin.profile') }}">
+          <i class="fe fe-user fe-16"></i>
+          <span class="ml-3 item-text">Profile</span>
+        </a>
+      </li>
     </ul>
     <div class="btn-box w-100 mt-4 mb-1">
       <a href="{{ route('admin.logout') }}" class="btn mb-2 btn-danger btn-md btn-block">

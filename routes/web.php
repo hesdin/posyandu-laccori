@@ -77,8 +77,9 @@ Route::prefix('admin')
       Route::get('laporan/ibu-hamil', [LaporanController::class, 'ibuHamil'])->name('ibu.hamil');
       Route::post('laporan/ibu-hamil', [LaporanController::class, 'laporanIbuHamil'])->name('laporan.ibu.hamil');
 
-
-
+      // Profile
+      Route::get('profile', [DashboardController::class, 'profile'])->name('profile');
+      Route::patch('profile/{id}', [DashboardController::class, 'profileUpdate'])->name('profile.update');
 
       Route::get('/logout', [AuthController::class, 'logoutAdmin'])->name('logout');
     });
