@@ -24,6 +24,12 @@ class IbuHamilController extends Controller
 
     ];
 
+    // foreach ($data_ibu_hamil as $ibu_hamil) {
+    //   dd($ibu_hamil->user->balita->nama);
+    // }
+
+    // dd($data_ibu_hamil);
+
     return view('admin.pages.ibu-hamil', $data);
   }
 
