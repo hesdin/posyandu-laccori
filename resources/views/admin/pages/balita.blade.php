@@ -115,7 +115,7 @@
                     <select class="form-control select2 select2-hidden-accessible" id="user_id"
                       data-select2-id="user_id" tabindex="-1" aria-hidden="true" name="user_id">
                       @foreach ($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->nama }}</option>
+                        <option value="{{ $user->id }}">{{ $user->nama }} {{ $user->no_kk }}</option>
                       @endforeach
                     </select>
                   </div>

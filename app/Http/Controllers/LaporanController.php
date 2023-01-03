@@ -23,9 +23,13 @@ class LaporanController extends Controller
     $myDate = $month . '/01/' . $year;
     $date = Carbon::createFromFormat('m/d/Y', $myDate)->isoFormat('MMMM Y');
 
+    $d_posyandu = BalitaPosyandu::all();
+
+
+
     $d_posyandu = BalitaPosyandu::with('balita')
-      ->whereYear('created_at', $year)
-      ->whereMonth('created_at', $month)
+      ->whereYear('tgl_posyandu', $year)
+      ->whereMonth('tgl_posyandu', $month)
       ->get();
 
     if ($d_posyandu->isEmpty()) {
@@ -60,8 +64,8 @@ class LaporanController extends Controller
     $date = Carbon::createFromFormat('m/d/Y', $myDate)->isoFormat('MMMM Y');
 
     $d_pemeriksaan = PemeriksaanIbuHamil::with('ibuHamil')
-      ->whereYear('created_at', $year)
-      ->whereMonth('created_at', $month)
+      ->whereYear('tgl_pemeriksaan', $year)
+      ->whereMonth('tgl_pemeriksaan', $month)
       ->get();
 
     if ($d_pemeriksaan->isEmpty()) {

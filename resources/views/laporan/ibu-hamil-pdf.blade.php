@@ -59,7 +59,7 @@
 
 <body>
   <section id="kop">
-    <h1>Laporan Balita Posyandu Desa Laccorri</h1>
+    <h1>Laporan Pemeriksaan Ibu Hamil Posyandu Desa Laccori</h1>
     <h1>Kecamatan Dua Boccoe</h1>
     <p>{{ $date }}</p>
   </section>
@@ -112,8 +112,8 @@
   <section id="ttd">
     <p>Laccorri, {{ \Carbon\Carbon::now()->isoFormat('D MMMM Y') }}</p>
     <p>Kepala Posyandu</p>
-    <p class="nama">Kepala Posyandu</p>
-    <p>NIP.1231231231231</p>
+    <p class="nama">H. Sudirman, SKM</p>
+    <p>NIP.19700404 199103 1 009</p>
   </section>
 
 </body>

@@ -85,6 +85,9 @@
                             style="width: 52.05px;" aria-label="Tinggi Badan: activate to sort column ascending">Tinggi
                             Badan</th>
                           <th class="sorting" tabindex="0" aria-controls="dataTable-1" rowspan="1" colspan="1"
+                            style="width: 93.9833px;" aria-label="Lingkar Lengan: activate to sort column ascending">
+                            Lingkar Lengan</th>
+                          <th class="sorting" tabindex="0" aria-controls="dataTable-1" rowspan="1" colspan="1"
                             style="width: 93.9833px;" aria-label="Lingkar Kepala: activate to sort column ascending">
                             Lingkar Kepala</th>
                           <th class="sorting" tabindex="0" aria-controls="dataTable-1" rowspan="1" colspan="1"
@@ -101,6 +104,7 @@
                             </td>
                             <td>{{ $posyandu->berat_badan }} Kg</td>
                             <td>{{ $posyandu->tinggi_badan }} Cm</td>
+                            <td>{{ $posyandu->lingkar_lengan }} Cm</td>
                             <td>{{ $posyandu->lingkar_kepala }} Cm</td>
                             <td>{{ $posyandu->imunisasi->nama ?? '-' }}</td>
 
@@ -164,6 +168,11 @@
             <div class="form-group mb-3">
               <label for="tinggi_badan">Tinggi Badan (Cm)</label>
               <input type="number" name="tinggi_badan" class="form-control" step="0.1" required>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="lingkar_lengan">Lingkar Lengan (Cm)</label>
+              <input type="number" name="lingkar_lengan" class="form-control" step="0.1" required>
             </div>
 
             <div class="form-group mb-3">

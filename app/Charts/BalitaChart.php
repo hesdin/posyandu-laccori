@@ -34,6 +34,7 @@ class BalitaChart
       foreach ($datas as $data) {
         $berat_badan[] = $data->berat_badan;
         $tinggi_badan[] = $data->tinggi_badan;
+        $lingkar_lengan[] = $data->lingkar_lengan;
         $lingkar_kepala[] = $data->lingkar_kepala;
         $bulan[] = date('F', strtotime($data->tgl_posyandu));
         $diffs[] = date_diff(date_create($balita_birth), date_create($data->tgl_posyandu))->format('%r%y') * 12 + date_diff(date_create($balita_birth), date_create($data->tgl_posyandu))->format('%r%m');
@@ -50,6 +51,7 @@ class BalitaChart
         // ->setSubtitle()
         ->addData('Berat Badan(Kg)', $berat_badan)
         ->addData('Tinggi Badan(Cm)', $tinggi_badan)
+        ->addData('Lingkar Lengan(Cm)', $lingkar_lengan)
         ->addData('Lingkar Kepala(Cm)', $lingkar_kepala)
         ->setXAxis($umur);
     }

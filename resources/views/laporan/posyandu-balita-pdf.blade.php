@@ -59,7 +59,7 @@
 
 <body>
   <section id="kop">
-    <h1>Laporan Balita Posyandu Desa Laccorri</h1>
+    <h1>Laporan Balita Posyandu Desa Laccori</h1>
     <h1>Kecamatan Dua Boccoe</h1>
     <p>{{ $date }}</p>
   </section>
@@ -74,13 +74,15 @@
           <th rowspan="2">Tgl Lahir</th>
           <th rowspan="2">Nama Ayah/Ibu</th>
           <th rowspan="2">Alamat</th>
-          <th colspan="3">Hasil Posyandu</th>
+          <th colspan="4">Hasil Posyandu</th>
         </tr>
 
         <tr>
           <th>Berat Badan</th>
           <th>Tinggi Badan</th>
           <th>Lingkar Kepala</th>
+          <th>Lingkar Lengan</th>
+
         </tr>
       </thead>
       <tbody>
@@ -96,6 +98,8 @@
             <td>{{ $posyandu->berat_badan }} Kg</td>
             <td>{{ $posyandu->tinggi_badan }} Cm</td>
             <td>{{ $posyandu->lingkar_kepala }} Cm</td>
+            <td>{{ $posyandu->lingkar_lengan }} Cm</td>
+
           </tr>
         @endforeach
 
@@ -106,8 +110,8 @@
   <section id="ttd">
     <p>Laccorri, {{ \Carbon\Carbon::now()->isoFormat('D MMMM Y') }}</p>
     <p>Kepala Posyandu</p>
-    <p class="nama">Kepala Posyandu</p>
-    <p>NIP.1231231231231</p>
+    <p class="nama">H. Sudirman, SKM</p>
+    <p>NIP.19700404 199103 1 009</p>
   </section>
 
 </body>

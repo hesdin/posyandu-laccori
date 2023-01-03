@@ -42,6 +42,12 @@
                     </div>
 
                     <div class="form-group mb-3">
+                      <label for="lingkar_lengan">Lingkar Lengan (Cm)</label>
+                      <input type="number" value="{{ $posyandu->lingkar_lengan }}" name="lingkar_lengan"
+                        class="form-control" step="0.1" required>
+                    </div>
+
+                    <div class="form-group mb-3">
                       <label for="lingkar_kepala">Lingkar Kepala (Cm)</label>
                       <input type="number" value="{{ $posyandu->lingkar_kepala }}" name="lingkar_kepala"
                         class="form-control" step="0.1" required>

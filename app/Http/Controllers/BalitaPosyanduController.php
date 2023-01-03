@@ -54,6 +54,7 @@ class BalitaPosyanduController extends Controller
     $balita_posyandu->tgl_posyandu = $request->tgl_posyandu;
     $balita_posyandu->berat_badan = $request->berat_badan;
     $balita_posyandu->tinggi_badan = $request->tinggi_badan;
+    $balita_posyandu->lingkar_lengan = $request->lingkar_lengan;
     $balita_posyandu->lingkar_kepala = $request->lingkar_kepala;
     $balita_posyandu->imunisasi_id = $request->imunisasi;
 
@@ -125,6 +126,7 @@ class BalitaPosyanduController extends Controller
     $posyandu->tgl_posyandu = $request->tgl_posyandu;
     $posyandu->berat_badan = $request->berat_badan;
     $posyandu->tinggi_badan = $request->tinggi_badan;
+    $posyandu->lingkar_lengan = $request->lingkar_lengan;
     $posyandu->lingkar_kepala = $request->lingkar_kepala;
     $posyandu->imunisasi_id = $request->imunisasi;
 

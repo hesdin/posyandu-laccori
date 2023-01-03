@@ -30,6 +30,7 @@ return new class extends Migration
       $table->date('tgl_posyandu');
       $table->double('berat_badan');
       $table->double('tinggi_badan');
+      $table->double('lingkar_lengan');
       $table->double('lingkar_kepala');
 
       $table->timestamps();
